@@ -16,5 +16,5 @@ jobs:
       runs-on: windows-latest
       steps:
         - run: |
-          echo "mi nombre es Manuel"
-          echo "Estoy haciendo un curso de Github Actions"
+            echo mi nombre es Manuel
+            echo Estoy haciendo un curso de Github Actions
