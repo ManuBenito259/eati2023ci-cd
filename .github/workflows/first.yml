@@ -8,7 +8,7 @@ jobs:
       runs-on: ubuntu-latest
       steps:
         - name: "my first step"
-          run: python ./eati.py EATI 2023    
+          run: python eati.py EATI 2023    
             
 
     job2:
