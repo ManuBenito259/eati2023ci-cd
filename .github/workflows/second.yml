@@ -1,0 +1,41 @@
+on:
+  push: 
+    branches:
+      - workflows2
+
+jobs:
+  trabajo1:
+    runs-on: ubuntu-20.04
+
+    steps:
+    - uses: actions/checkout@v2
+    - run: python eati.py "Workflow" "Dependencies"
+
+  trabajo2:
+    runs-on: windows-2019
+
+    steps:
+    - run: Get-Command
+
+  trabajo3:
+    needs: [trabajo1, trabajo2]
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - run: |
+            env
+
+  trabajo4:
+    runs-on: ubuntu-latest
+
+    steps:
+    - run: cat /etc/*release
+
+  trabajo5:
+    needs: [trabajo3, trabajo4]
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - run: echo "Fin workflow"
