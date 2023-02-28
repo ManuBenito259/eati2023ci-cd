@@ -8,7 +8,7 @@ jobs:
       runs-on: ubuntu-latest
       steps:
         - name: "my first step"
-        - run: python ./eati.py EATI 2023    
+          run: python eati.py EATI 2023    
             
 
     job2:
@@ -16,6 +16,6 @@ jobs:
       runs-on: windows-latest
       steps:
         - name: "my second step"
-        - run: |
-            echo mi nombre es Manuel
-            echo Estoy haciendo un curso de Github Actions
+          run: |
+            echo "mi nombre es Manuel"
+            echo "Estoy haciendo un curso de Github Actions"
