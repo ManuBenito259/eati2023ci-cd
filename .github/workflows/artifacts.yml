@@ -1,4 +1,4 @@
-name: Build and Test Workflow
+name: Artifacts Worfflow
 
 on: [push]
 
@@ -28,9 +28,10 @@ jobs:
           name: main
           path: ./
       - name: Verify artifact download
-        run: ls | grep main
+        run: ls | grep main 
       - name: Run main
         run: |
+          chmod -x ./main
           ./main
           if [ $? -eq 0 ]; then
             echo "Éxito"
