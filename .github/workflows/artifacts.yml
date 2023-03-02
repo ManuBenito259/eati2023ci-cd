@@ -31,7 +31,7 @@ jobs:
         run: ls | grep main 
       - name: Run main
         run: |
-          chmod -x ./main
+          chmod +x ./main
           ./main
           if [ $? -eq 0 ]; then
             echo "Éxito"
