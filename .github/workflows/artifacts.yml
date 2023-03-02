@@ -1,0 +1,39 @@
+name: Build and Test Workflow
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          repository: jmoyano/cautious-meme
+          ref: main
+      - name: Build main.c
+        run: gcc main.c -o main
+      - name: Upload artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: main
+          path: ./main
+  test:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: main
+          path: ./
+      - name: Verify artifact download
+        run: ls | grep main
+      - name: Run main
+        run: |
+          ./main
+          if [ $? -eq 0 ]; then
+            echo "Éxito"
+          else
+            echo "Error"
+          fi
